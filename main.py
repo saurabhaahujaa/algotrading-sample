@@ -2,6 +2,7 @@ from pyalgotrading.algobulls import AlgoBullsConnection
 from pyalgotrading.strategy import *
 
 from datetime import datetime
+from datetime import timedelta
 
 class StrategyEMARegularOrder(StrategyBase):
     name = 'EMA Regular Order Strategy'
@@ -38,3 +39,21 @@ if __name__ == '__main__':
     print(f"Type: {type(dt2.date())}")
     print(f"Time: {dt2.time()}")
     print(f"Type: {type(dt2.time())}")
+
+    td1 = timedelta(days=5)
+    print(f'Time difference: {td1}')
+    past_date = dt1 - \
+                       timedelta(days = 2)
+    print(f"Date: {past_date.date()}")
+
+    time_5minutes_later = (dt1 + 
+                                timedelta(minutes=5)).time()
+    print(f"Time 5 minutes later: {time_5minutes_later}")
+    print(time_5minutes_later>past_date.time())
+
+    dt3=dt1.replace(year=2021, month=1, day=1)
+    print(f'A timestamp from 1st January 2021: {dt2}')
+
+    now_tz_aware = datetime.now().astimezone()
+    print(now_tz_aware)
+    print(now_tz_aware.tzinfo)
